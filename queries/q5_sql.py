@@ -23,8 +23,11 @@ sql5 = spark.sql("WITH temp_table AS (SELECT MONTH(tpep_pickup_datetime)AS month
     SELECT temp_table.month, temp_table.day, temp_table.tip_per,\
     ROW_NUMBER() OVER (PARTITION BY temp_table.month ORDER BY temp_table.tip_per DESC) AS month_rank\
     FROM temp_table)\
-    WHERE month_rank <= 5").show()
+    WHERE month_rank <= 5")
 
+#sql5.show()
+
+sql5.write.mode("overwrite").option("header",True).csv("hdfs://master:9000/out_data/sql5_out/")
 
 time = time.time() - start_time
 

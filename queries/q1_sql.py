@@ -32,8 +32,10 @@ sqlDF1 = spark.sql("SELECT *\
         WHERE pickup_date BETWEEN '2022-03-01' AND '2022-03-31' AND Zone = 'Battery Park')\
         AND Zone = 'Battery Park'")
 
-sqlDF1.collect()
-sqlDF1.show()
+
+#sqlDF1.show()
+
+sqlDF1.write.mode("overwrite").option("header",True).csv("hdfs://master:9000/out_data/sql1_out/")
 
 time = time.time() - start_time
 

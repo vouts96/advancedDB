@@ -1,0 +1,2 @@
+VendorID,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,RatecodeID,store_and_fwd_flag,PULocationID,DOLocationID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount,congestion_surcharge,airport_fee,LocationID,Borough,Zone,service_zone,pickup_date
+1,2022-01-22T11:39:07.000+02:00,2022-01-22T12:31:09.000+02:00,1.0,33.4,1.0,Y,70,265,4,88.0,0.0,0.5,0.0,193.3,0.3,282.1,0.0,0.0,265,Unknown,NA,N/A,2022-01-22

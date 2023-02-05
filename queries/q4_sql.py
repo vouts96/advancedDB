@@ -23,7 +23,11 @@ sql4 = spark.sql("WITH ex AS (SELECT WEEKDAY(tpep_pickup_datetime) AS weekday, H
     SELECT ex.weekday, ex.hour, ex.pass,\
     ROW_NUMBER() OVER (PARTITION BY ex.weekday ORDER BY ex.pass DESC) AS weekday_rank\
     FROM ex)\
-    WHERE weekday_rank <= 3").show(21)
+    WHERE weekday_rank <= 3")
+
+#sql4.show()
+
+sql4.write.mode("overwrite").option("header",True).csv("hdfs://master:9000/out_data/sql4_out/")
 
 time = time.time() - start_time
 

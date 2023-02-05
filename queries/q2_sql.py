@@ -37,8 +37,10 @@ sql2 = spark.sql("SELECT t1.*\
     ORDER BY MAX(tolls_amount) DESC) t2\
     ON t1.tolls_amount = t2.tolls")
 
-sql2.collect()
-sql2.show()
+
+#sql2.show()
+
+sql2.write.mode("overwrite").option("header",True).csv("hdfs://master:9000/out_data/sql2_out/")
 
 time = time.time() - start_time
 
